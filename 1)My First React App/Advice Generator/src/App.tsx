@@ -2,11 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 const App: React.FC = () =>  {
+  interface Slip {
+    id: number;
+    advice: string;
+}
+
+interface AdviceSlip {
+    slip: Slip;
+}
+
   const [advice, setAdvice] = useState<string>('');
   const [count, setCount] = useState<number>(0);
   const getAdvice = async () =>{
       const response = await fetch('https://api.adviceslip.com/advice')
-      const data = await response.json();
+      const data: AdviceSlip = await response.json();
       setAdvice(data.slip.advice);
       setCount((c)=> c + 1);
   }
