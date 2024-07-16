@@ -1,19 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
+import HomePage from "./pages/Homepage";
 import Pricing from "./pages/Pricing";
-import Homepage from "./pages/Homepage";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
-export default function App(): JSX.Element {
+import Login from "./pages/Login";
+import CityList from "./components/CityList";
+const App = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="products" element={<Product />} />
+        <Route index element={<HomePage />} />
+        <Route path="product" element={<Product />} />
         <Route path="pricing" element={<Pricing />} />
-        <Route path="App" element={<AppLayout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="app" element={<AppLayout />}>
+          <Route index element={<CityList />} />
+          <Route path="cities" element={<CityList />} />
+          <Route path="form" element={<p>Form</p>} />
+          <Route path="countries" element={<p>Countries</p>} />
+        </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
+export default App;

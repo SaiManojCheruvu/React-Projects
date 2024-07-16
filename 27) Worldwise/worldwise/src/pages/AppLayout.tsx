@@ -1,10 +1,12 @@
-import AppNav from "../components/AppNav";
-
-export default function AppLayout(): JSX.Element {
+import styles from "./AppLayout.module.css";
+import Sidebar from "../components/Sidebar";
+import Map from "../components/Map";
+const AppLayout = (): JSX.Element => {
   return (
-    <div>
-      <AppNav />
-      <p>App Layout</p>
+    <div className={styles.app}>
+      <Sidebar />
+      <Map />
     </div>
   );
-}
+};
+export default AppLayout;

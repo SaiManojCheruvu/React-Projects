@@ -1,10 +1,8 @@
-import PageNav from "../components/PageNav";
-
-export default function PageNotFound(): JSX.Element {
+const PageNotFound = (): JSX.Element => {
   return (
     <div>
-      <PageNav />
-      Page Not found
+      <h2> Page not found</h2>
     </div>
   );
-}
+};
+export default PageNotFound;
